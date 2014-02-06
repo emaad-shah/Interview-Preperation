@@ -24,6 +24,7 @@ public:
 	~List();
 	// Insert a node 
 	bool insert(int);
+	// Insert node recursively
 	void rInsert(int);
 	// Delete a node
 	bool deleteNode(int);
