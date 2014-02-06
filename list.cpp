@@ -55,7 +55,7 @@ bool List::insert(int data)
 // Recursive insert
 void List::rInsert(int data)
 {
-	rInsertHelper(head,data);
+	rInsertHelper(head, data);
 }
 
 // Recursive insert helper
@@ -69,7 +69,7 @@ void List::rInsertHelper(Node *& head, int data)
 		head = newNode;
 	}
 	else
-		rInsertHelper(head->next,data);
+		rInsertHelper(head->next, data);
 
 }
 // Print the list
@@ -171,10 +171,6 @@ void List::free()
 
 int main(void)
 {
-	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	//_CrtSetBreakAlloc(141);
-
-
 	List l1;
 	// Test recursive insert
 	for (int i = 5; i > 0; i--)
@@ -204,7 +200,9 @@ int main(void)
 
 
 	// Detect memory  leak
-	_CrtDumpMemoryLeaks();
+	//_CrtDumpMemoryLeaks();
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetBreakAlloc(141);
 	system("pause");
 	return 0;
 }
