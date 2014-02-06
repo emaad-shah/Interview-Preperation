@@ -81,6 +81,21 @@ bool BSTree::insert(int data)
 	return true;
 }
 
+// Count number of leaves
+int BSTree::countLeaves()
+{
+	return countLeavesHelper(root);
+}
+
+int BSTree::countLeavesHelper(Node*& cur)
+{
+	if (cur == NULL)
+		return 0;
+	return countLeavesHelper(cur->left) + 1 +
+	countLeavesHelper(cur->right);
+
+}
+
 void BSTree::print()
 {
 	inOrder(root);
@@ -108,12 +123,12 @@ int main(void)
 	t.insert(5);
 	t.print();
 
-
+	cout << "Number of leaves: " << t.countLeaves() << endl;
 	// Detect memory  leak
-	_CrtDumpMemoryLeaks();
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	_CrtSetBreakAlloc(141);
-	//system("pause");
+	//_CrtDumpMemoryLeaks();
+	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	//_CrtSetBreakAlloc(141);
+	system("pause");
 	return 0;
 }
  
