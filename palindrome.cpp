@@ -47,9 +47,9 @@ void display(char *s, bool cond)
 	for (int i = 0; i < strlen(s); i++)
 		cout << s[i];
 	if (cond == true)
-		cout << ", is a palindrome" << endl << endl;
+		cout << " (a palindrome)" << endl << endl;
 	else
-		cout << ", is not a palindrome" << endl << endl;
+		cout << " (not a palindrome)" << endl << endl;
 }
 
 int main(void)
