@@ -24,7 +24,7 @@ bool palindrome(char *s)
 	int r = size;
 	while (r > (size / 2))
 	{
-		// Ignore commas, signs, etc
+		// Ignore capitals, punctuation, and spaces
 		while (!((s[l] > 64 && s[l] < 91) || (s[l] > 96 && s[l] < 123)))
 			l++;
 		while (!((s[r] > 64 && s[r] < 91) || (s[r] > 96 && s[r] < 123)))
