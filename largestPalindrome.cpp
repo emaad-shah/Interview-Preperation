@@ -1,4 +1,3 @@
-// Work currently in progress
 /*
 string -> f -> largest palindrome within that string
 
@@ -20,11 +19,12 @@ string palindrome(const char *input, const int size, int i, int j)
 	string output = "";
 	int l = i;
 	int r = j;
-	int stop = r - l;
-	while (r >= stop)
+	while (l <= j)
 	{
 		if (input[r] == input[l])
 			output = output + input[r];
+		else
+			return "";
 		r--;
 		l++;
 	}
@@ -33,12 +33,12 @@ string palindrome(const char *input, const int size, int i, int j)
 
 int main()
 {
-	char input[] = "abbacheeseabbaasrttrsa";
+	char input[] = "abbacheese";
 	int size = strlen(input);
 	string output = "";
 	for (int i = 0; i < size; i++)
 	{
-		for (int j = i; j < size; j++)
+		for (int j = i + 1; j < size; j++)
 		{
 			string tmp = palindrome(input, size, i, j);
 			if (tmp.length() > output.length())
