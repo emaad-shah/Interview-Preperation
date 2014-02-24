@@ -42,7 +42,7 @@ void findAndDisplay(const char *input, int size)
 		<< input << " is " << output << endl;
 	else
 		cout << "The string " << input << " does not"
-		" contain a palindrome" << endl;
+			    " contain a palindrome" << endl;
 	cout << endl;
 }
 
