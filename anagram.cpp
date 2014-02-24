@@ -1,88 +1,77 @@
 //------------------------------------------------------------
 // Copyright: Syed Shah 2014
-// Check two anagrams
+// Find largest palindrome within that string
 //------------------------------------------------------------
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-// Hash Function
-int hashFunction(char l, int p)
+string palindrome(const char *input, const int size, int i, int j)
 {
-	return l % p;
+	string output = "";
+	int l = i;
+	int r = j;
+	while (l <= j)
+	{
+		if (input[r] == input[l])
+			output = output + input[r];
+		else
+			return "";
+		r--;
+		l++;
+	}
+	return output;
 }
 
-// Checks if two words are anagrams
-bool isAnagram(char* w1, char * w2, int size1, int size2)
+void findAndDisplay(const char *input, int size)
 {
-	if (size1 != size2)
-		return false;
-
-	// Size of the hash table (a - z)
-	int p = 26;
-	// Hash Table
-	int dictionary[26];
-	// Index of the hash table
-	int index = 0;
-
-	// Initialize the dictionary
-	for (int i = 0; i < 26; i++)
-		dictionary[i] = 0;
-
-	// Big O(N)
-	for (int i = 0; i < size1; i++)
+	string output = "";
+	for (int i = 0; i < size; i++)
 	{
-		index = hashFunction(w1[i] - 97, p);
-		dictionary[index] = dictionary[index] + 1;
-
-		index = hashFunction(w2[i] - 97, p);
-		dictionary[index] = dictionary[index] + 1;
+		for (int j = i + 1; j < size; j++)
+		{
+			string tmp = palindrome(input, size, i, j);
+			if (tmp.length() > output.length())
+				output = tmp;
+		}
 	}
-
-	// If anagrams, each table element should have 2 letters
-	for (int i = 0; i < p; i++)
-	{
-		if (dictionary[i] % 2 != 0)
-			return false;
-	}
-
-	return true;
-}
-
-// Displays anagrams
-void display(bool cond, char *w1, char *w2)
-{
-	if (cond == true)
-		cout << w1 << " and " << w2 << " are anagram of each other" << endl << endl;
+	if (!output.empty())
+		cout << "The longest palindrome in "
+		<< input << " is " << output << endl;
 	else
-		cout << w1 << " and " << w2 << " are not anagram of each other" << endl << endl;
+		cout << "The string " << input << " does not"
+		" contain a palindrome" << endl;
+	cout << endl;
 }
 
 int main(void)
 {
 	// Test 1
-	char w1[7] = "looped";
-	char w2[7] = "poodle";
-	int size1 = sizeof(w1) / sizeof(*w1) - 1;
-	int size2 = sizeof(w2) / sizeof(*w2) - 1;
-	bool cond = isAnagram(w1, w2, size1, size2);
-	display(cond, w1, w2);
+	char input[] = "abbacheese";
+	int size = strlen(input);
+	findAndDisplay(input, size);
 	// Test 2
-	char w3[5] = "bats";
-	char w4[5] = "stab";
-	size1 = sizeof(w3) / sizeof(*w3) - 1;
-	size2 = sizeof(w4) / sizeof(*w4) - 1;
-	cond = isAnagram(w3, w4, size1, size2);
-	display(cond, w3, w4);
+	char input2[] = "adbacheese";
+	size = strlen(input2);
+	findAndDisplay(input2, size);
 	// Test 3
-	char w5[7] = "banana";
-	char w6[6] = "apple";
-	size1 = sizeof(w5) / sizeof(*w5) - 1;
-	size2 = sizeof(w6) / sizeof(*w6) - 1;
-	cond = isAnagram(w5, w6, size1, size2);
-	display(cond, w5, w6);
-
+	char input3[] = "abcdefghij";
+	size = strlen(input3);
+	findAndDisplay(input3, size);
+	// Test 4
+	char input4[] = "a";
+	size = strlen(input4);
+	findAndDisplay(input4, size);
+	// Test 5
+	char input5[] = "aabb";
+	size = strlen(input5);
+	findAndDisplay(input5, size);
+	// Test 6
+	char input6[] = "abba";
+	size = strlen(input6);
+	findAndDisplay(input6, size);
 
 	system("pause");
 	return 0;
