@@ -1,4 +1,4 @@
-Interview-Preperation
+Practice-Problems
 =====================
 
 Practice problems to reinforce learning
