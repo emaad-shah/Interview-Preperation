@@ -5,16 +5,16 @@
 // this. Describe what(if any) limitations the code has
 //
 // Limitations: Compiler may throw a warning/error for values
-//							outside the range of -2147483647 to 2147483647
+//		outside the range of -2147483647 to 2147483647
 //
 //
 // Assumptions	If the first index of the string contains a 
-//							'-' symbol, the program will assume that a 
-//							string contains a negative number
+//		'-' symbol, the program will assume that a 
+//		string contains a negative number
 //
-//							All non-integers except a possible negative 
-//							sign at the first index of the string will be
-//							ignored
+//		All non-integers except a possible negative 
+//		sign at the first index of the string will be
+//		ignored
 //------------------------------------------------------------
 
 #include <iostream>
