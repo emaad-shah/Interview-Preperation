@@ -1,6 +1,6 @@
 //------------------------------------------------------------
 // Copyright:    Syed Shah 2014
-//			         Find n missing numbers from a given file
+//		 Find n missing numbers from a given file
 //------------------------------------------------------------
 
 #include <iostream>
