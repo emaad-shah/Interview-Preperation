@@ -28,7 +28,7 @@ int main(void)
 	for (int i = 0; i < len; i++)
 	{
 		dict[input[i]] += 1;
-		// Add once
+		// Add each character once
 		if (dict[input[i]] == 1)
 			output += input[i];
 	}
